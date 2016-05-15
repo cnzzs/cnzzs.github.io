@@ -41,7 +41,9 @@ a {
    background-color: #31b0d5;
     height: 6rem;;
 }
-
+.navbar-toggle .icon-bar {
+    background-color: #31b0d5;
+}
 .bs-body{
     padding-top: 50px;
 }
