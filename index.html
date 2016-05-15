@@ -1,11 +1,13 @@
 <!doctype html>
-<html lang="zh">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Egan</title>
+    <meta name="keywords" content="" />
+    <link href="css/style.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+
 
 </head>
 <body>
@@ -29,15 +31,14 @@
 
         <!-- 这里定义两个区域，布局定义如下：//-->
         <div class="col-lg-7 col-md-7 col-xs-12">
-
             <div class="row">
                 <div class="bs-banner">
                     <div id="slide-holder">
-                        <div id="slide-runner">
-                            <a href="/" target="_blank"><img id="slide-img-1" src="images/a1.jpg"  alt="" /></a>
-                            <a href="/" target="_blank"><img id="slide-img-2" src="images/a2.jpg"  alt="" /></a>
-                            <a href="/" target="_blank"><img id="slide-img-3" src="images/a3.jpg"  alt="" /></a>
-                            <div id="slide-controls">
+                        <div id="slide-runner" class="col-lg-12 col-md-12 col-xs-12" style="padding: 0">
+                            <div js-do="images">
+                                <a href="({url})" target="_blank" ><img id="slide-img-({id})" src="({image})"  alt="" width="100%" height="100%"/></a>
+                            </div>
+                            <div id="slide-controls"  class="col-lg-12 col-md-12 col-xs-12"  style="padding: 0">
                                 <p id="slide-client" class="text"><strong></strong><span></span></p>
                                 <p id="slide-desc" class="text"></p>
                                 <p id="slide-nav"></p>
@@ -45,7 +46,20 @@
                         </div>
                     </div>
                 </div>
-
+                <!-- 这里是最新帖子-->
+                <div class="bs-newest">
+                    <h2><span><a target="_blank" href="/">栏目标题</a><a target="_blank" href="/">栏目标题</a><a target="_blank" href="/">栏目标题</a></span><b>文章</b>最新</h2>
+                  <div js-do="newest-content">
+                    <div class="blogs row">
+                            <figure class="col-lg-5 col-md-5 col-xs-12" style="padding: 0"><img src="({image})"></figure>
+                            <ul  class="col-lg-7 col-md-7 col-xs-12">
+                            <h3><a href="({url})" target="_blank">({title})</a></h3>
+                            <p>({desc})</p>
+                            <p class="autor"><span class="lm f_l"><a href="/">个人博客</a></span><span class="dtime f_l">({createTime})</span><span class="viewnum f_r">浏览（<a href="/">459</a>）</span><span class="pingl f_r">评论（<a href="/">30</a>）</span></p>
+                        </ul>
+                    </div>
+                  </div>
+                </div>
             </div>
 
 
@@ -79,24 +93,10 @@
 </div>
 <!-- footer end-->
 
-<script type="text/javascript">
-    if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
-        var msViewportStyle = document.createElement('style')
-        msViewportStyle.appendChild(
-                document.createTextNode(
-                        '@-ms-viewport{width:auto!important}'
-                )
-        )
-        document.querySelector('head').appendChild(msViewportStyle)
-    }
-    if(navigator.userAgent.toLowerCase().indexOf('msie') >= 0){
-        document.write('<script type="text/javascript" src="js/jquery-1.11.3.js" ><\/script>')
-    }else{
-        document.write('<script type="text/javascript" src="js/jquery-2.1.4.js" ><\/script>')
-    }
 
-</script>
-<script type="text/javascript" src="js/sliders.js"></script>
+<script type="text/javascript" src="js/jquery.js" ></script>
+<script type="text/javascript" src="js/template.js" ></script>
+<script type="text/javascript" src="js/sliders.js" ></script>
 <script type="text/javascript" src="js/index.js"></script>
 <script>
 

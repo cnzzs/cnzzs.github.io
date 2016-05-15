@@ -1,24 +1,21 @@
 /**
- * Created by ZaoSheng on 2016/5/15.
+ * @author egan
+ * @email cnzhengzs@gmail.com
  */
-if(!window.slider) {
-    var slider={};
-}
-
-slider.data= [
-    {
-        "id":"slide-img-1", // 与slide-runner中的img标签id对应
-        "client":"标题1",
-        "desc":"这里修改描述 这里修改描述 这里修改描述" //这里修改描述
-    },
-    {
-        "id":"slide-img-2",
-        "client":"标题2",
-        "desc":"add your description here"
-    },
-    {
-        "id":"slide-img-3",
-        "client":"标题3",
-        "desc":"add your description here"
-    }
-];
+$(function(){
+    load(
+        "json/banner.json",
+        $('[js-do="images"]'),
+        {
+            cllack: function (data) {
+                slider.data = data;
+                slider.init();
+            }
+        })
+    load("json/newest.json", $('[js-do="newest-content"]'), {
+        befor: function (row, data) {
+             row["url"] = formatString2Array("%s?type=%s&id=%s", data.url, data.type, row.id)
+            return row;
+        }
+    })
+})
