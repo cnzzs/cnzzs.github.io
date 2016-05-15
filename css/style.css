@@ -1,0 +1,63 @@
+@-ms-viewport       { width: device-width; }
+@-webkit-viewport   { width: device-width; }
+@-moz-viewport      { width: device-width; }
+@-ms-viewport       { width: device-width; }
+@-o-viewport        { width: device-width; }
+@viewport           { width: device-width; }
+
+.bs-head,.bs-logo,.bs-nav{
+    height: 60px;
+    line-height: 60px;
+}
+.bs-logo{
+    content: "cnzzs";
+    font-size: 2rem;
+    background-color: #4cae4c;
+}
+
+.bs-nav{
+    background-color: #31b0d5;
+}
+.bs-body{
+    margin: 5rem auto;
+}
+
+.js-left{
+    height: 20rem;
+ background-color: #46b8da;
+
+}
+.js-right{
+    height: 20rem;
+ background-color: #1b6d85;
+}
+
+
+
+body{
+    font-family: 'microsoft yahei',Arial,sans-serif;
+}
+
+.bs-header{
+    border-bottom: 1px solid #DFDFDF;
+    padding-top:30px;
+    padding-bottom:20px;
+}
+
+.bs-header h1{
+    margin:0;
+}
+
+
+
+.bs-body{
+    padding-top: 50px;
+}
+
+
+.footer{
+    margin: 30px 0 30px;
+    padding: 50px;
+    background: #CCC;
+    color: #FFF;
+}
