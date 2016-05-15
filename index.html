@@ -16,8 +16,8 @@
             <h1 class="text-primary">Egan</h1>
             <p><span class="glyphicon glyphicon-paperclip"></span> Java工程师</p>
         </div>
-        <div class="col-lg-9 col-md-9 col-xs-12 bs-nav">
-
+        <div class="col-lg-9 col-md-9 col-xs-12">
+            <div class="bs-nav"></div>
         </div>
 
     </div>
@@ -28,17 +28,23 @@
     <div class="row bs-body">
 
         <!-- 这里定义两个区域，布局定义如下：//-->
-        <div class="col-lg-6 col-md-6 col-xs-12">
+        <div class="col-lg-7 col-md-7 col-xs-12">
 
             <div class="row">
-                <ul>
-                    <li>aaaa</li>
-                    <li>aaaa</li>
-                    <li>aaaa</li>
-                    <li>aaaa</li>
-                    <li>aaaa</li>
-
-                </ul>
+                <div class="bs-banner">
+                    <div id="slide-holder">
+                        <div id="slide-runner">
+                            <a href="/" target="_blank"><img id="slide-img-1" src="images/a1.jpg"  alt="" /></a>
+                            <a href="/" target="_blank"><img id="slide-img-2" src="images/a2.jpg"  alt="" /></a>
+                            <a href="/" target="_blank"><img id="slide-img-3" src="images/a3.jpg"  alt="" /></a>
+                            <div id="slide-controls">
+                                <p id="slide-client" class="text"><strong></strong><span></span></p>
+                                <p id="slide-desc" class="text"></p>
+                                <p id="slide-nav"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
 
@@ -47,7 +53,7 @@
 
         <div class="col-lg-1 col-md-1 col-xs-12"></div>
 
-        <div class="col-lg-5 col-md-5 col-xs-12">
+        <div class="col-lg-4 col-md-4 col-xs-12">
 
             <div class="row">
                 <ul>
@@ -90,57 +96,10 @@
     }
 
 </script>
-
+<script type="text/javascript" src="js/sliders.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
 <script>
 
-    $(function(){
-        $.getScript('http://www.chartjs.org/assets/Chart.js',function(){
-
-            var zhdata = [{
-                label: '中文水平',
-                value: 90,
-                highlight: "#FFC870",
-                color: "#F7464A"
-            }, {
-                value: 10,
-                color: "#EEEEEE"
-            }
-            ]
-
-            var zhoptions = {
-                animation: true,
-                segmentShowStroke : false
-            };
-
-            var c = $('#zh');
-            var ct = c.get(0).getContext('2d');
-
-            var zhChart = new Chart(ct).Doughnut(zhdata, zhoptions);
-
-
-            var endata = [{
-                label: '英文水平',
-                value: 80,
-                highlight: "#5AD3D1",
-                color: "#4D5360"
-            }, {
-                value: 20,
-                color: "#EEEEEE"
-            }
-            ]
-
-            var enoptions = {
-                animation: true,
-                segmentShowStroke : false
-            };
-
-            var c = $('#en');
-            var ct = c.get(0).getContext('2d');
-
-            var enchart = new Chart(ct).Doughnut(endata, enoptions);
-        });
-
-    });
 
 </script>
 </body>
