@@ -175,7 +175,7 @@ a {
 
 .blogs figure {
  /*   float: left;*/
-    width: 25%;
+    /*width: 25%;*/
     overflow: hidden;
 }
 
@@ -199,7 +199,7 @@ a {
     font-size: 12px;
     float: right;
     line-height: 22px;
-    width: 72%;
+    /*width: 72%;*/
     color: #756F71;
 }
 
