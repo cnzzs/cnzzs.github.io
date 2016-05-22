@@ -1,6 +1,26 @@
 recommend/1.html
+
 <div>
+   <textarea placeholder="Content here ...." id="editor" style="display: none;">
+        #123654
+
+    </textarea>
 <script>
+
+   $(function() {
+    /*   var editor = new Editor({
+           element: document.getElementById('editor'),
+           toolbar: []
+       });*/
+//       editor.render();
+        $('#editor').load('1.md',
+                function(data) {
+                    var editor = new Editor();
+                    editor.render();
+                }
+        );
+    });
+
 
 </script>
 </div>
