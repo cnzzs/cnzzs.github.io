@@ -55,7 +55,9 @@ a {
     background: #CCC;
     color: #FFF;
 }
-
+.navbar-collapse{
+    text-align: center;
+}
 .bs-banner {
     height: 280px;
     /*width: 668px;*/
@@ -247,4 +249,32 @@ a {
     font-size: 18px;
     border-bottom: 1px solid #E6E6E6;
     height: 40px
+}
+.content{
+    right: 10px;
+}
+
+@media (max-width: 768px) {
+    .search{
+        margin-bottom: 10px;
+
+    }
+
+
+}
+@media (min-width: 769px) {
+    .search{
+        margin-bottom: auto;
+
+    }
+    .content{
+        right: 50px;
+    }
+
+}
+@media (min-width: 1170px) {
+    .content{
+        right: 50px;
+    }
+
 }
