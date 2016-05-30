@@ -253,28 +253,50 @@ a {
 .content{
     right: 10px;
 }
-
+.search{
+    top: 5rem;
+}
+.search input {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    color: #999;
+    font-family: "Lato",Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-size: 1em;
+    font-style: italic;
+    padding: 10px 15px;
+    width: 100%;
+}
 @media (max-width: 768px) {
     .search{
-        margin-bottom: 10px;
-
+        top:3rem;
     }
 
 
 }
 @media (min-width: 769px) {
     .search{
-        margin-bottom: auto;
-
+        top:3rem;
     }
     .content{
         right: 50px;
     }
 
 }
+
 @media (min-width: 1170px) {
     .content{
         right: 50px;
     }
 
+}
+
+.widget a{
+    color: #337ab7;
+}
+.widget .title {
+    border-bottom: 1px solid #ddd;
+
+    font-weight: normal;
+    padding: 15px 20px;
 }
