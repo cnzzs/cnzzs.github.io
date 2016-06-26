@@ -4,7 +4,7 @@
  */
 $(function(){
     load(
-        "json/banner.json",
+        "/json/banner.json",
         $('[js-do="images"]'),
         {
             cllack: function (data) {
@@ -12,7 +12,7 @@ $(function(){
                 slider.init();
             }
         })
-    load("json/newest.json", $('[js-do="newest-content"]'), {
+    load("/json/newest.json", $('[js-do="newest-content"]'), {
         rowFilter:function(dom, row){
             var dom = $(dom);
             dom.find(".viewnum").remove();
@@ -31,4 +31,5 @@ $(function(){
             return row;
         }
     })
+
 })

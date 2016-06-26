@@ -2,7 +2,6 @@
  * @author egan
  * @email cnzhengzs@gmail.com
  */
-
 /**
  *
  * @param dom
@@ -49,7 +48,7 @@ function load(url, dom, options){
 
     options = $.extend({}, _options,options);
     $.ajax({
-        url : url,
+        url : base + url,
         type : "get",
         dataType : 'json',
         success : function(data) {
@@ -74,7 +73,7 @@ function load(url, dom, options){
 function loadOne(url, dom, options){
     options = $.extend({}, _options,options);
     $.ajax({
-        url : url,
+        url : base + url,
         type : "get",
         dataType : 'json',
         success : function(data) {

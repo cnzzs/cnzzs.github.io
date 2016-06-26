@@ -39,7 +39,7 @@
         <nav style="height: 1px;" aria-expanded="false" id="bs-navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="###" onclick="_hmt.push(['_trackEvent', 'docv3-navbar', 'click', '首页'])">首页</a>
+                    <a href="/" onclick="_hmt.push(['_trackEvent', 'docv3-navbar', 'click', '首页'])">首页</a>
                 </li>
                 <li>
                     <a href="###" onclick="_hmt.push(['_trackEvent', 'docv3-navbar', 'click', '分类'])">分类</a>
@@ -109,14 +109,22 @@
 
         <div class="col-lg-2 col-md-2  col-sm-2 col-xs-2"></div>
         <div class="col-lg-4 col-md-4  col-sm-3 col-xs-12 right">
+            <div class="row widget tag">
+                <h3 class="title">分类</h3>
+                <ul class="entry" js-do="categories-content">
+                    <li><a href="({url})">({name})</a><small>({num})</small></li>
+                </ul>
+            </div>
             <div class="row widget">
                 <h3 class="title">标签云</h3>
                 <div class="entry">
-                    <a style="font-size: 20px;" href="/tags/Java/">Java</a> <a style="font-size: 10px;" href="/tags/PHP/">PHP</a> <a style="font-size: 10px;" href="/tags/PHP-interceptor/">PHP interceptor</a> <a style="font-size: 10px;" href="/tags/RESTFul-api/">RESTFul api</a> <a style="font-size: 20px;" href="/tags/Tomcat/">Tomcat</a> <a style="font-size: 10px;" href="/tags/amr转mp3/">amr转mp3</a> <a style="font-size: 10px;" href="/tags/blog/">blog</a> <a style="font-size: 20px;" href="/tags/java/">java</a> <a style="font-size: 10px;" href="/tags/jave/">jave</a> <a style="font-size: 10px;" href="/tags/maven/">maven</a> <a style="font-size: 10px;" href="/tags/sonatype/">sonatype</a> <a style="font-size: 10px;" href="/tags/sonatype-nexus-3/">sonatype-nexus-3</a> <a style="font-size: 10px;" href="/tags/springframework-version/">springframework version</a> <a style="font-size: 10px;" href="/tags/协作开发/">协作开发</a> <a style="font-size: 10px;" href="/tags/团队建设/">团队建设</a> <a style="font-size: 10px;" href="/tags/然并卵系列/">然并卵系列</a> <a style="font-size: 10px;" href="/tags/生活/">生活</a>
+                    <a style="font-size: 20px;" href="/tags/Java/">Java</a>
+                     <a style="font-size: 20px;"href="/tags/Tomcat/">Tomcat</a>
+                     <a style="font-size: 10px;" href="/tags/blog/">blog</a>
+                    <a style="font-size: 10px;" href="/tags/生活/">生活</a>
                 </div>
             </div>
         </div>
-
 
     </div>
 </div>
@@ -124,7 +132,7 @@
 
 <!-- footer start-->
 <div class="container">
-    <div class="row"><div class="footer text-center"></div></div>
+    <div class="row"><div class="footer text-center"> © 2016 Egan</div></div>
 </div>
 <!-- footer end-->
 
@@ -134,6 +142,7 @@
 <script type="text/javascript" src="js/template.js" ></script>
 <script type="text/javascript" src="js/sliders.js" ></script>
 <script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/categories.js"></script>
 <script>
 
 

@@ -2,22 +2,126 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Egan</title>
+    <meta name="keywords" content="" />
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" rel="stylesheet">
 </head>
 <link rel="stylesheet" href="http://lab.lepture.com/editor/editor.css" />
 <script type="text/javascript" src="http://lab.lepture.com/editor/editor.js"></script>
 <script type="text/javascript" src="../js/editor/marked.js"></script>
+
 <body>
-dfsdfsd
 
-<div id="content">
+<!-- head start-->
+<div class="container">
+    <div class="row bs-header">
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+                <span class="sr-only"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
 
+            <div class="col-md-offset-0 col-xs-offset-1">
+                <h1 class="text-primary">Egan</h1>
+                <p><span class="glyphicon glyphicon-paperclip"></span> 未来一切可能</p>
+            </div>
+
+        </div>
+        <nav style="height: 1px;" aria-expanded="false" id="bs-navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="../" onclick="_hmt.push(['_trackEvent', 'docv3-navbar', 'click', '首页'])">首页</a>
+                </li>
+                <li>
+                    <a href="###" onclick="_hmt.push(['_trackEvent', 'docv3-navbar', 'click', '分类'])">分类</a>
+                </li>
+                <li class="active">
+                    <a href="###" onclick="_hmt.push(['_trackEvent', 'docv3-navbar', 'click', '关于'])">关于</a>
+                </li>
+            </ul>
+
+        </nav>
+
+    </div>
 </div>
+<!-- /head end-->
+<!-- body start-->
+<div class="container">
+    <div class="row ">
+        <div class="col-lg-8 col-md-8 col-xs-1"></div>
+        <div class="col-lg-4 col-md-4 col-xs-10 search">
+            <form accept-charset="utf-8" method="get" action="//google.com/search">
+                <input type="search" placeholder="搜索"  style="width:90%;"results="0" name="q"/>
+                <input type="hidden" value="site:egan.in" name="q">
+            </form>
+        </div>
+
+    </div>
+    <div class="row bs-body">
+        <div class="col-lg-0 col-md-0  col-sm-0 col-xs-1"></div>
+        <!-- 这里定义两个区域，布局定义如下：//-->
+        <div class="col-lg-7 col-md-7  col-sm-8 col-xs-10 content">
+            <div class="row">
+                <!-- 这里是最新帖子-->
+                <div class="bs-newest">
+                    <h1 id="title">({name})</h1>
+                    <div js-do="newest-content">
+                        <div class="blogs row">
+
+                            <figure class="col-lg-3 col-md-3 col-sm-5 col-xs-11 "  ><img src="({image})" style="margin: 15px 10px"></figure>
+                            <ul  class="col-lg-9 col-md-9 col-sm-7  col-xs-12">
+                                <h3  style="padding: 0 10px"><a href="({url})" target="_blank">({title})</a></h3>
+                                <p  style="padding: 0 10px">({desc})</p>
+                                <p class="autor"><span class="lm f_l"><a href="/">个人博客</a></span><span class="dtime f_l">({createTime})</span><span class="viewnum f_r">浏览（<a href="/">459</a>）</span><span class="pingl f_r">评论（<a href="/">30</a>）</span></p>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+        <div class="col-lg-2 col-md-2  col-sm-2 col-xs-2"></div>
+        <div class="col-lg-4 col-md-4  col-sm-3 col-xs-12 right">
+            <div class="row widget tag">
+                <h3 class="title">分类</h3>
+                <ul class="entry" js-do="categories-content">
+                    <li><a href="({url})">({name})</a><small>({num})</small></li>
+                </ul>
+            </div>
+            <div class="row widget">
+                <h3 class="title">标签云</h3>
+                <div class="entry">
+                    <a style="font-size: 20px;" href="/tags/Java/">Java</a>
+                    <a style="font-size: 20px;"href="/tags/Tomcat/">Tomcat</a>
+                    <a style="font-size: 10px;" href="/tags/blog/">blog</a>
+                    <a style="font-size: 10px;" href="/tags/生活/">生活</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- body end-->
+
+<!-- footer start-->
+<div class="container">
+    <div class="row"><div class="footer text-center"> © 2016 Egan</div></div>
+</div>
+<!-- footer end-->
 
 <script type="text/javascript" src="../js/jquery.js" ></script>
 <script type="text/javascript" src="../js/template.js" ></script>
 <script type="text/javascript" src="../js/request.js" ></script>
 <script type="text/javascript" src="../js/article.js" ></script>
+<script type="text/javascript" src="../js/categories.js"></script>
 
 
 </body>

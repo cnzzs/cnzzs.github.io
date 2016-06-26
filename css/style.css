@@ -291,12 +291,40 @@ a {
 
 }
 
-.widget a{
+.widget {
+    box-shadow: 2px 3px 5px #ddd;
+    margin-bottom: 30px;
+    word-wrap: break-word;
+    padding-left: 10px;
+}
+
+.widget a {
     color: #337ab7;
 }
+
 .widget .title {
     border-bottom: 1px solid #ddd;
-
     font-weight: normal;
     padding: 15px 20px;
+    font-size: 18px;
+    font-weight: 200;
+}
+
+.tag small::before {
+    content: "(";
+}
+
+.tag small::after {
+    content: ")";
+}
+
+.tag small {
+    color: #999;
+    margin-left: 15px;
+}
+.bs-newest h1 {
+    border-bottom: 4px solid #337ab7;
+    color: #333;
+    font-weight: bold;
+    line-height: 36px;
 }
