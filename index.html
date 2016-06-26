@@ -39,7 +39,7 @@
         <nav style="height: 1px;" aria-expanded="false" id="bs-navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="/" onclick="_hmt.push(['_trackEvent', 'docv3-navbar', 'click', '首页'])">首页</a>
+                    <a href="index.html" onclick="_hmt.push(['_trackEvent', 'docv3-navbar', 'click', '首页'])">首页</a>
                 </li>
                 <li>
                     <a href="###" onclick="_hmt.push(['_trackEvent', 'docv3-navbar', 'click', '分类'])">分类</a>
@@ -87,7 +87,7 @@
                 </div>
                 <!-- 这里是最新帖子-->
                 <div class="bs-newest">
-                    <h2><!--<span><a target="_blank" href="/">栏目标题</a><a target="_blank" href="/">栏目标题</a><a target="_blank" href="/">栏目标题</a></span>-->最新<b>文章</b></h2>
+                    <h2 class="title"><!--<span><a target="_blank" href="/">栏目标题</a><a target="_blank" href="/">栏目标题</a><a target="_blank" href="/">栏目标题</a></span>-->最新<b>文章</b></h2>
                   <div js-do="newest-content">
                     <div class="blogs row">
 
@@ -112,7 +112,7 @@
             <div class="row widget tag">
                 <h3 class="title">分类</h3>
                 <ul class="entry" js-do="categories-content">
-                    <li><a href="({url})">({name})</a><small>({num})</small></li>
+                    <li><a href="({url})">({title})</a><small>({num})</small></li>
                 </ul>
             </div>
             <div class="row widget">

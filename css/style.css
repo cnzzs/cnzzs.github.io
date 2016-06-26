@@ -125,7 +125,7 @@ a {
     margin: 20px 0;
 }
 
-.bs-newest h2 {
+.bs-newest .title {
     font-size: 16px;
     font-weight: bold;
     line-height: 36px;
@@ -133,21 +133,21 @@ a {
     border-bottom: #337ab7 4px solid;
 }
 
-.bs-newest h2 b {
+.bs-newest .title b {
 }
 
-.bs-newest h2 span {
+.bs-newest .title span {
     float: right;
     font-size: 12px;
     font-weight: normal;
 }
 
-.bs-newest h2 span a {
+.bs-newest .title span a {
     display: inline-block;
     padding: 0 5px;
 }
 
-.bs-newest h2 span a:hover {
+.bs-newest .title span a:hover {
     color: #000
 }
 
@@ -322,9 +322,21 @@ a {
     color: #999;
     margin-left: 15px;
 }
-.bs-newest h1 {
+.bs-newest #title {
     border-bottom: 4px solid #337ab7;
     color: #333;
     font-weight: bold;
-    line-height: 36px;
+    padding-bottom: 5px;
+    font-size: 24px;
+}
+#article-content{
+    box-shadow: 2px 3px 5px #ddd;
+    margin-bottom: 30px;
+    word-wrap: break-word;
+    padding: 0 10px 10px;
+}
+.bs-newest #title span{
+    font-size: 12px;
+    float: right;
+   padding-top: 10px;
 }
