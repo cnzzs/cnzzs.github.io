@@ -4,12 +4,12 @@
     {
       "url":"/article/index.html?type=Java",
       "title":"Java",
-      "num": 5
+      "num": 2
     },
     {
       "url":"/article/index.html?type=life",
-      "title":"生活",
-      "num": 5
+      "title":"个人博客",
+      "num": 1
     }
   ]
 

@@ -1,0 +1,226 @@
+
+<article itemprop="text" class="markdown-body entry-content"><h1><a aria-hidden="true" href="#pay-java-parent" class="anchor" id="user-content-pay-java-parent"></a>pay-java-parent</h1>
+
+    <h2><a aria-hidden="true" href="#整合支付模块微信支付支付宝" class="anchor" id="user-content-整合支付模块微信支付支付宝"></a>整合支付模块（微信支付，支付宝）</h2>
+
+    <h4><a aria-hidden="true" href="#一--快速入门" class="anchor" id="user-content-一--快速入门"></a>一.  快速入门</h4>
+
+    <ol>
+        <li>支付整合配置</li>
+    </ol>
+
+    <div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">PayResponse</span> {
+    <span class="pl-k">@Resource</span>
+    <span class="pl-k">private</span> <span class="pl-smi">AutowireCapableBeanFactory</span> spring;
+
+    <span class="pl-k">private</span> <span class="pl-smi">PayConfigStorage</span> storage;
+
+    <span class="pl-k">private</span> <span class="pl-smi">PayService</span> service;
+
+    <span class="pl-k">private</span> <span class="pl-smi">PayMessageRouter</span> router;
+
+    <span class="pl-k">public</span> <span class="pl-en">PayResponse</span>() {
+
+    }
+
+    <span class="pl-c">/**</span>
+<span class="pl-c">     * 初始化支付配置</span>
+<span class="pl-c">     * @param apyAccount 账户信息</span>
+<span class="pl-c">     */</span>
+    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">init</span>(<span class="pl-smi">ApyAccount</span> <span class="pl-v">apyAccount</span>) {
+
+
+        <span class="pl-v">this</span><span class="pl-k">.</span>service <span class="pl-k">=</span> getPayService(apyAccount);
+        <span class="pl-v">this</span><span class="pl-k">.</span>storage <span class="pl-k">=</span> service<span class="pl-k">.</span>getPayConfigStorage();
+
+        buildRouter(apyAccount<span class="pl-k">.</span>getPayId());
+    }
+
+
+    <span class="pl-c">/**</span>
+<span class="pl-c">     * 根据不同的账户类型 初始化支付配置</span>
+<span class="pl-c">     * @param apyAccount 账户信息</span>
+<span class="pl-c">     */</span>
+    <span class="pl-k">public</span> <span class="pl-smi">PayService</span> <span class="pl-en">getPayService</span>(<span class="pl-smi">ApyAccount</span> <span class="pl-v">apyAccount</span>){
+
+        <span class="pl-k">switch</span> (apyAccount<span class="pl-k">.</span>getPayType()){
+            <span class="pl-k">case</span> <span class="pl-c1">0</span><span class="pl-k">:</span>
+                <span class="pl-smi">AliPayConfigStorage</span> aliPayConfigStorage <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">AliPayConfigStorage</span>();
+                aliPayConfigStorage<span class="pl-k">.</span>setPartner(apyAccount<span class="pl-k">.</span>getPartner());
+                aliPayConfigStorage<span class="pl-k">.</span>setAli_public_key(apyAccount<span class="pl-k">.</span>getPublicKey());
+                aliPayConfigStorage<span class="pl-k">.</span>setKeyPrivate(apyAccount<span class="pl-k">.</span>getPrivateKey());
+                aliPayConfigStorage<span class="pl-k">.</span>setInputCharset(apyAccount<span class="pl-k">.</span>getInputCharset());
+                aliPayConfigStorage<span class="pl-k">.</span>setNotifyUrl(apyAccount<span class="pl-k">.</span>getNotifyUrl());
+                aliPayConfigStorage<span class="pl-k">.</span>setSignType(apyAccount<span class="pl-k">.</span>getSignType());
+                aliPayConfigStorage<span class="pl-k">.</span>setSeller(apyAccount<span class="pl-k">.</span>getSeller());
+                aliPayConfigStorage<span class="pl-k">.</span>setPayType(apyAccount<span class="pl-k">.</span>getPayType());
+                <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-smi">AliPayService</span>(aliPayConfigStorage);
+            <span class="pl-k">case</span> <span class="pl-c1">1</span><span class="pl-k">:</span>
+                <span class="pl-smi">WxPayConfigStorage</span> wxPayConfigStorage <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">WxPayConfigStorage</span>();
+                wxPayConfigStorage<span class="pl-k">.</span>setMchId(apyAccount<span class="pl-k">.</span>getPartner());
+                wxPayConfigStorage<span class="pl-k">.</span>setAppSecret(apyAccount<span class="pl-k">.</span>getPublicKey());
+                wxPayConfigStorage<span class="pl-k">.</span>setAppid(apyAccount<span class="pl-k">.</span>getAppid());
+                wxPayConfigStorage<span class="pl-k">.</span>setKeyPrivate(apyAccount<span class="pl-k">.</span>getPrivateKey());
+                wxPayConfigStorage<span class="pl-k">.</span>setInputCharset(apyAccount<span class="pl-k">.</span>getInputCharset());
+                wxPayConfigStorage<span class="pl-k">.</span>setNotifyUrl(apyAccount<span class="pl-k">.</span>getNotifyUrl());
+                wxPayConfigStorage<span class="pl-k">.</span>setSignType(apyAccount<span class="pl-k">.</span>getSignType());
+                wxPayConfigStorage<span class="pl-k">.</span>setPayType(apyAccount<span class="pl-k">.</span>getPayType());
+                <span class="pl-k">return</span>  <span class="pl-k">new</span> <span class="pl-smi">WxPayService</span>(wxPayConfigStorage);
+            <span class="pl-k">default</span><span class="pl-k">:</span>
+
+        }
+        <span class="pl-k">return</span> <span class="pl-c1">null</span>;
+    }
+
+
+    <span class="pl-c">/**</span>
+<span class="pl-c">     * 配置路由</span>
+<span class="pl-c">     * @param payId 指定账户id，用户多微信支付多支付宝支付</span>
+<span class="pl-c">     */</span>
+    <span class="pl-k">private</span> <span class="pl-k">void</span> <span class="pl-en">buildRouter</span>(<span class="pl-smi">Integer</span> <span class="pl-v">payId</span>) {
+        router <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">PayMessageRouter</span>(<span class="pl-v">this</span><span class="pl-k">.</span>service);
+        router
+                .rule()
+                .async(<span class="pl-c1">false</span>)
+                .msgType(<span class="pl-smi">PayConsts</span><span class="pl-c1"><span class="pl-k">.</span>MSG_TEXT</span>)
+                .event(<span class="pl-smi">PayConsts</span><span class="pl-c1"><span class="pl-k">.</span>MSG_ALIPAY</span>)
+                .handler(autowire(<span class="pl-k">new</span> <span class="pl-smi">AliPayMessageHandler</span>(payId)))
+                .end()
+                .rule()
+                .async(<span class="pl-c1">false</span>)
+                .msgType(<span class="pl-smi">PayConsts</span><span class="pl-c1"><span class="pl-k">.</span>MSG_XML</span>)
+                .event(<span class="pl-smi">PayConsts</span><span class="pl-c1"><span class="pl-k">.</span>MSG_WXPAY</span>)
+                .handler(autowire(<span class="pl-k">new</span> <span class="pl-smi">WxPayMessageHandler</span>(payId)))
+                .end()
+        ;
+    }
+
+
+    <span class="pl-k">private</span> <span class="pl-smi">PayMessageHandler</span> <span class="pl-en">autowire</span>(<span class="pl-smi">PayMessageHandler</span> <span class="pl-v">handler</span>) {
+        spring<span class="pl-k">.</span>autowireBean(handler);
+        <span class="pl-k">return</span> handler;
+    }
+
+    <span class="pl-k">public</span> <span class="pl-smi">PayConfigStorage</span> <span class="pl-en">getStorage</span>() {
+        <span class="pl-k">return</span> storage;
+    }
+
+    <span class="pl-k">public</span> <span class="pl-smi">PayService</span> <span class="pl-en">getService</span>() {
+        <span class="pl-k">return</span> service;
+    }
+
+    <span class="pl-k">public</span> <span class="pl-smi">PayMessageRouter</span> <span class="pl-en">getRouter</span>() {
+        <span class="pl-k">return</span> router;
+    }
+}
+</pre></div>
+
+    <ol>
+        <li> 根据账户id与业务id，组拼订单信息（支付宝、微信支付订单）获取支付信息所需的数据</li>
+    </ol>
+
+    <div class="highlight highlight-source-java"><pre>  <span class="pl-c">//获取对应的支付账户操作工具（可根据账户id）</span>
+  <span class="pl-smi">PayResponse</span> payResponse <span class="pl-k">=</span> <span class="pl-c1">null</span>;
+  <span class="pl-c">//这里之所以用Object，因为微信需返回Map， 支付吧String。 摘要部分：@_%s_@中的'%s'用户替代账户id，支付回调得知账户信息</span>
+  <span class="pl-smi">Object</span> orderInfo <span class="pl-k">=</span> payResponse<span class="pl-k">.</span>getService()<span class="pl-k">.</span>orderInfo(<span class="pl-s"><span class="pl-pds">"</span>订单title<span class="pl-pds">"</span></span>, <span class="pl-smi">String</span><span class="pl-k">.</span>format(<span class="pl-s"><span class="pl-pds">"</span>@_%s_@摘要<span class="pl-pds">"</span></span>, body<span class="pl-k">.</span>getPayId()), <span class="pl-k">new</span> <span class="pl-smi">BigDecimal</span>(<span class="pl-c1">0.01</span>), <span class="pl-s"><span class="pl-pds">"</span>tradeNo<span class="pl-pds">"</span></span>);
+  <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(orderInfo);
+</pre></div>
+
+    <ol>
+        <li>支付回调</li>
+    </ol>
+
+    <div class="highlight highlight-source-java"><pre>     <span class="pl-c">/**</span>
+<span class="pl-c">     * 微信或者支付宝回调地址</span>
+<span class="pl-c">     * @param request</span>
+<span class="pl-c">     * @return</span>
+<span class="pl-c">     */</span>
+    @<span class="pl-smi">ResponseBody</span>
+    @RequestMapping(value <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>payBack.json<span class="pl-pds">"</span></span>)
+    <span class="pl-k">public</span> <span class="pl-smi">String</span> payBack(<span class="pl-smi">HttpServletRequest</span> request){
+               <span class="pl-k">Map&lt;<span class="pl-smi">String</span>, <span class="pl-smi">String</span>&gt;</span> params <span class="pl-k">=</span> request2Params(request);
+        <span class="pl-k">if</span> (<span class="pl-c1">null</span> <span class="pl-k">==</span> params){
+            <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">"</span>fail<span class="pl-pds">"</span></span>;
+        }
+        <span class="pl-smi">Integer</span> payId <span class="pl-k">=</span> <span class="pl-c1">null</span>;
+        <span class="pl-k">if</span> ( <span class="pl-s"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span><span class="pl-k">.</span>equals(params<span class="pl-k">.</span>remove(<span class="pl-s"><span class="pl-pds">"</span>payType<span class="pl-pds">"</span></span>))){
+            <span class="pl-smi">String</span> subject  <span class="pl-k">=</span> params<span class="pl-k">.</span>get(<span class="pl-s"><span class="pl-pds">"</span>body<span class="pl-pds">"</span></span>);
+              <span class="pl-c">// 摘要部分：@_%s_@中的'%s'用户替代账户id，获取账户id</span>
+            payId <span class="pl-k">=</span> <span class="pl-smi">Integer</span><span class="pl-k">.</span>parseInt(subject<span class="pl-k">.</span>substring(subject<span class="pl-k">.</span>indexOf(<span class="pl-s"><span class="pl-pds">"</span>@_<span class="pl-pds">"</span></span>) <span class="pl-k">+</span> <span class="pl-c1">2</span>, subject<span class="pl-k">.</span>indexOf(<span class="pl-s"><span class="pl-pds">"</span>_@<span class="pl-pds">"</span></span>)));
+        }<span class="pl-k">else</span> {
+            <span class="pl-smi">String</span> attach  <span class="pl-k">=</span> params<span class="pl-k">.</span>get(<span class="pl-s"><span class="pl-pds">"</span>attach<span class="pl-pds">"</span></span>);
+             <span class="pl-c">// 摘要部分：@_%s_@中的'%s'用户替代账户id，获取账户id</span>
+            payId <span class="pl-k">=</span> <span class="pl-smi">Integer</span><span class="pl-k">.</span>parseInt(attach<span class="pl-k">.</span>substring(attach<span class="pl-k">.</span>indexOf(<span class="pl-s"><span class="pl-pds">"</span>@_<span class="pl-pds">"</span></span>) <span class="pl-k">+</span> <span class="pl-c1">2</span>, attach<span class="pl-k">.</span>indexOf(<span class="pl-s"><span class="pl-pds">"</span>_@<span class="pl-pds">"</span></span>)));
+        }
+        <span class="pl-c">//根据账户id，获取对应的支付账户操作工具</span>
+        <span class="pl-smi">PayResponse</span> payResponse <span class="pl-k">=</span> service<span class="pl-k">.</span>getPayResponse(payId);
+        <span class="pl-k">if</span> (payResponse<span class="pl-k">.</span>getService()<span class="pl-k">.</span>verify(params)){
+            <span class="pl-smi">PayConfigStorage</span> storage <span class="pl-k">=</span> payResponse<span class="pl-k">.</span>getStorage();
+            <span class="pl-smi">String</span> msgType <span class="pl-k">=</span> <span class="pl-c1">null</span>;
+            <span class="pl-k">if</span> (<span class="pl-c1">0</span> <span class="pl-k">==</span> storage<span class="pl-k">.</span>getPayType()){
+                msgType <span class="pl-k">=</span> <span class="pl-smi">PayConsts</span><span class="pl-c1"><span class="pl-k">.</span>MSG_TEXT</span>;
+            }<span class="pl-k">else</span> {
+                msgType <span class="pl-k">=</span> <span class="pl-smi">PayConsts</span><span class="pl-c1"><span class="pl-k">.</span>MSG_XML</span>;
+            }
+            <span class="pl-smi">PayMessage</span> message <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">PayMessage</span>(params, storage<span class="pl-k">.</span>getPayType(), msgType);
+            <span class="pl-smi">PayOutMessage</span> outMessage <span class="pl-k">=</span> payResponse<span class="pl-k">.</span>getRouter()<span class="pl-k">.</span>route(message);
+            <span class="pl-k">return</span> outMessage<span class="pl-k">.</span>toMessage();
+        }
+
+        <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">"</span>fail<span class="pl-pds">"</span></span>;
+    }
+
+
+    <span class="pl-c">/**</span>
+<span class="pl-c">     * 根据请求获取参数Map</span>
+<span class="pl-c">     * @param request</span>
+<span class="pl-c">     * @return</span>
+<span class="pl-c">     */</span>
+    <span class="pl-k">public</span> <span class="pl-k">Map&lt;<span class="pl-smi">String</span>, <span class="pl-smi">String</span>&gt;</span> request2Params(<span class="pl-smi">HttpServletRequest</span> request){
+
+        <span class="pl-k">Map&lt;<span class="pl-smi">String</span>, <span class="pl-k">String</span>[]&gt;</span> requestParams <span class="pl-k">=</span> request<span class="pl-k">.</span>getParameterMap();
+        <span class="pl-c">//微信在请求参数里面获取不到对应的参数信息</span>
+        <span class="pl-k">if</span> (<span class="pl-c1">0</span> <span class="pl-k">==</span> requestParams<span class="pl-k">.</span>size()){
+            <span class="pl-c">//根据请求文件流里获取</span>
+            <span class="pl-k">Map&lt;<span class="pl-smi">String</span>, <span class="pl-smi">String</span>&gt;</span> data <span class="pl-k">=</span> inputStream2Map(request);
+            <span class="pl-k">if</span> (<span class="pl-c1">null</span> <span class="pl-k">==</span> data <span class="pl-k">||</span> data<span class="pl-k">.</span>size() <span class="pl-k">==</span> <span class="pl-c1">0</span>){
+                <span class="pl-k">return</span> <span class="pl-c1">null</span>;
+            }
+            <span class="pl-c">//设置支付类型</span>
+            data<span class="pl-k">.</span>put(<span class="pl-s"><span class="pl-pds">"</span>payType<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span>);
+            <span class="pl-k">return</span> data;
+        }
+        <span class="pl-k">Map&lt;<span class="pl-smi">String</span>,<span class="pl-smi">String</span>&gt;</span> params <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">HashMap&lt;<span class="pl-smi">String</span>,<span class="pl-smi">String</span>&gt;</span>();
+        <span class="pl-k">for</span> (<span class="pl-smi">Iterator</span> iter <span class="pl-k">=</span> requestParams<span class="pl-k">.</span>keySet()<span class="pl-k">.</span>iterator(); iter<span class="pl-k">.</span>hasNext();) {
+            <span class="pl-smi">String</span> name <span class="pl-k">=</span> (<span class="pl-smi">String</span>) iter<span class="pl-k">.</span>next();
+            <span class="pl-k">String</span>[] values <span class="pl-k">=</span> requestParams<span class="pl-k">.</span>get(name);
+            <span class="pl-smi">String</span> valueStr <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>;
+            <span class="pl-k">for</span> (<span class="pl-k">int</span> i <span class="pl-k">=</span> <span class="pl-c1">0</span>; i <span class="pl-k">&lt;</span> values<span class="pl-k">.</span>length; i<span class="pl-k">++</span>) {
+                valueStr <span class="pl-k">=</span> (i <span class="pl-k">==</span> values<span class="pl-k">.</span>length <span class="pl-k">-</span> <span class="pl-c1">1</span>) <span class="pl-k">?</span> valueStr <span class="pl-k">+</span> values[i]
+                        <span class="pl-k">:</span> valueStr <span class="pl-k">+</span> values[i] <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>,<span class="pl-pds">"</span></span>;
+            }
+            <span class="pl-c">//乱码解决，这段代码在出现乱码时使用。如果mysign和sign不相等也可以使用这段代码转化</span>
+            <span class="pl-c">//valueStr = new String(valueStr.getBytes("ISO-8859-1"), "gbk");</span>
+            params<span class="pl-k">.</span>put(name, valueStr);
+        }
+        <span class="pl-c">//  设置支付类型</span>
+        params<span class="pl-k">.</span>put(<span class="pl-s"><span class="pl-pds">"</span>payType<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span>);
+        <span class="pl-k">return</span> params;
+    }
+
+    <span class="pl-c">/**</span>
+<span class="pl-c">     * 从请求中获取xml文件流，转化为map</span>
+<span class="pl-c">     * @param request</span>
+<span class="pl-c">     * @return</span>
+<span class="pl-c">     */</span>
+        <span class="pl-k">public</span> <span class="pl-k">Map&lt;<span class="pl-smi">String</span>, <span class="pl-smi">String</span>&gt;</span> inputStream2Map(<span class="pl-smi">HttpServletRequest</span> request) {
+            <span class="pl-k">Map&lt;<span class="pl-smi">String</span>, <span class="pl-smi">String</span>&gt;</span> map <span class="pl-k">=</span> <span class="pl-c1">null</span>;<span class="pl-c">//将微信发出的Xml转Map</span>
+            <span class="pl-k">try</span> {
+                map <span class="pl-k">=</span> <span class="pl-smi">WxpayCore</span><span class="pl-k">.</span>toMap(request<span class="pl-k">.</span>getInputStream());
+            } <span class="pl-k">catch</span> (<span class="pl-smi">IOException</span> e) {
+                e<span class="pl-k">.</span>printStackTrace();
+            }
+            <span class="pl-k">return</span> map;
+        }
+</pre></div>
+</article>

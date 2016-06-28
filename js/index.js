@@ -27,6 +27,7 @@ $(function(){
            return dom.prop('outerHTML');
         },
         befor: function (row, data) {
+            row["image"] = base + row["image"];
              row["url"] = base + formatString2Array("%s?type=%s&id=%s&title=%s&createTime=%s", data.url, data.type, row.id, encodeURIComponent(encodeURIComponent(row.title)), row.createTime)
             return row;
         }
