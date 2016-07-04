@@ -2,6 +2,11 @@
   "code":0,
   "rows":[
     {
+      "url":"/article/index.html?type=db",
+      "title":"数据库",
+      "num": 1
+    },
+    {
       "url":"/article/index.html?type=java",
       "title":"Java",
       "num": 2

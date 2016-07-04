@@ -1,0 +1,14 @@
+{
+  "code": 0,
+  "type":"db",
+  "url": "/article/index.html",
+  "rows": [
+    {
+      "id": "2016007050153",
+      "title": "MySQL错误Cannot load from mysql.proc解决办法",
+      "desc": " Linux下将mysql从5.1升级至5.5后，发现存储过程不能用了。创建和使用存储过程时就会提示Cannot load from mysql.proc. The table is probably corrupted。",
+      "tag":"数据库",
+      "createTime":"2016-07-05"
+    }
+  ]
+}

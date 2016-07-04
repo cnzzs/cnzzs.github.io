@@ -1,0 +1,56 @@
+<article class="markdown-body entry-content" itemprop="text">
+<div class="js-commit-preview commit-preview"><div class="readme prose-diff html-blob blob instapaper_body" id="readme">
+    <div class="markdown-body">
+        <p>Linux下将mysql从5.1升级至5.5后，发现存储过程不能用了。创建和使用存储过程时就会提示</p>
+
+        <div class="highlight highlight-source-java"><pre><span class="pl-smi">Caused</span> by<span class="pl-k">:</span> <span class="pl-smi">java.sql<span class="pl-k">.</span>SQLException</span><span class="pl-k">:</span> <span class="pl-smi">Cannot</span> load from mysql<span class="pl-k">.</span>proc. <span class="pl-smi">The</span> table is probably corrupted
+        at <span class="pl-smi">com.mysql.jdbc<span class="pl-k">.</span>SQLError</span><span class="pl-k">.</span>createSQLException(<span class="pl-smi">SQLError</span><span class="pl-k">.</span>java<span class="pl-k">:</span><span class="pl-c1">1055</span>)
+        at <span class="pl-smi">com.mysql.jdbc<span class="pl-k">.</span>SQLError</span><span class="pl-k">.</span>createSQLException(<span class="pl-smi">SQLError</span><span class="pl-k">.</span>java<span class="pl-k">:</span><span class="pl-c1">956</span>)
+        at <span class="pl-smi">com.mysql.jdbc<span class="pl-k">.</span>MysqlIO</span><span class="pl-k">.</span>checkErrorPacket(<span class="pl-smi">MysqlIO</span><span class="pl-k">.</span>java<span class="pl-k">:</span><span class="pl-c1">3515</span>)
+        at <span class="pl-smi">com.mysql.jdbc<span class="pl-k">.</span>MysqlIO</span><span class="pl-k">.</span>checkErrorPacket(<span class="pl-smi">MysqlIO</span><span class="pl-k">.</span>java<span class="pl-k">:</span><span class="pl-c1">3447</span>)
+        at <span class="pl-smi">com.mysql.jdbc<span class="pl-k">.</span>MysqlIO</span><span class="pl-k">.</span>sendCommand(<span class="pl-smi">MysqlIO</span><span class="pl-k">.</span>java<span class="pl-k">:</span><span class="pl-c1">1951</span>)
+        at <span class="pl-smi">com.mysql.jdbc<span class="pl-k">.</span>MysqlIO</span><span class="pl-k">.</span>sqlQueryDirect(<span class="pl-smi">MysqlIO</span><span class="pl-k">.</span>java<span class="pl-k">:</span><span class="pl-c1">2101</span>)
+        at <span class="pl-smi">com.mysql.jdbc<span class="pl-k">.</span>ConnectionImpl</span><span class="pl-k">.</span>execSQL(<span class="pl-smi">ConnectionImpl</span><span class="pl-k">.</span>java<span class="pl-k">:</span><span class="pl-c1">2554</span>)
+        at <span class="pl-smi">com.mysql.jdbc<span class="pl-k">.</span>PreparedStatement</span><span class="pl-k">.</span>executeInternal(<span class="pl-smi">PreparedStatement</span><span class="pl-k">.</span>java<span class="pl-k">:</span><span class="pl-c1">1761</span>)
+        at <span class="pl-smi">com.mysql.jdbc<span class="pl-k">.</span>PreparedStatement</span><span class="pl-k">.</span>executeQuery(<span class="pl-smi">PreparedStatement</span><span class="pl-k">.</span>java<span class="pl-k">:</span><span class="pl-c1">1912</span>)
+        at <span class="pl-smi">com.mchange.v2.c3p0.impl<span class="pl-k">.</span>NewProxyPreparedStatement</span><span class="pl-k">.</span>executeQuery(<span class="pl-smi">NewProxyPreparedStatement</span><span class="pl-k">.</span>java<span class="pl-k">:</span><span class="pl-c1">446</span>)
+        at <span class="pl-smi">org.hibernate.jdbc<span class="pl-k">.</span>AbstractBatcher</span><span class="pl-k">.</span>getResultSet(<span class="pl-smi">AbstractBatcher</span><span class="pl-k">.</span>java<span class="pl-k">:</span><span class="pl-c1">208</span>)
+        at <span class="pl-smi">org.hibernate.loader<span class="pl-k">.</span>Loader</span><span class="pl-k">.</span>getResultSet(<span class="pl-smi">Loader</span><span class="pl-k">.</span>java<span class="pl-k">:</span><span class="pl-c1">1869</span>)
+        at <span class="pl-smi">org.hibernate.loader<span class="pl-k">.</span>Loader</span><span class="pl-k">.</span>doQuery(<span class="pl-smi">Loader</span><span class="pl-k">.</span>java<span class="pl-k">:</span><span class="pl-c1">718</span>)
+        at <span class="pl-smi">org.hibernate.loader<span class="pl-k">.</span>Loader</span><span class="pl-k">.</span>doQueryAndInitializeNonLazyCollections(<span class="pl-smi">Loader</span><span class="pl-k">.</span>java<span class="pl-k">:</span><span class="pl-c1">270</span>)
+        at <span class="pl-smi">org.hibernate.loader<span class="pl-k">.</span>Loader</span><span class="pl-k">.</span>doList(<span class="pl-smi">Loader</span><span class="pl-k">.</span>java<span class="pl-k">:</span><span class="pl-c1">2449</span>)
+        <span class="pl-c1">...</span> <span class="pl-c1">89</span> more
+
+</pre></div>
+
+        <p>查遍整个百度，结果还是印证了那一句话“天下文章一大抄”啊！</p>
+
+        <p>所有的文章几乎都是这么说的</p>
+
+        <p>解决方法非常简单，运行mysql_upgrade命令即可。此命令会在数据目录下生成一个文本文件mysql_upgrade_info，里面的内容为升级后的数据库版本。</p>
+
+        <p>但不知道什么原因，在我这里无效，升级后各种升级OK，但仍然报这个错误。</p>
+
+        <p>最后还是求助ＧＯＯＧＬＥ吧</p>
+
+        <p><a href="http://bugs.mysql.com/bug.php?id=50183">http://bugs.mysql.com/bug.php?id=50183</a></p>
+
+        <p>原因是mysql.proc升级时有个字段没有升级成功。</p>
+
+        <p>在5.1中mysql.proc表的comment字段是varchar(64)：</p>
+
+        <div class="highlight highlight-source-sql"><pre><span class="pl-s"><span class="pl-pds">`</span>comment<span class="pl-pds">`</span></span> <span class="pl-k">char</span>(<span class="pl-c1">64</span>) CHARACTER <span class="pl-k">SET</span> utf8 COLLATE utf8_bin <span class="pl-k">NOT NULL</span> DEFAULT</pre></div>
+
+        <p>,但在5.5中应该是text：</p>
+
+        <div class="highlight highlight-source-sql"><pre><span class="pl-s"><span class="pl-pds">`</span>comment<span class="pl-pds">`</span></span> <span class="pl-k">text</span> CHARACTER <span class="pl-k">SET</span> utf8 COLLATE utf8_bin <span class="pl-k">NOT NULL</span></pre></div>
+
+        <p>So，执行下面的语句，把这个字段修改为text，就彻底OK了：</p>
+
+        <div class="highlight highlight-source-sql"><pre><span class="pl-k">ALTER</span> <span class="pl-k">TABLE</span> <span class="pl-s"><span class="pl-pds">`</span>proc<span class="pl-pds">`</span></span>
+
+MODIFY COLUMN <span class="pl-s"><span class="pl-pds">`</span>comment<span class="pl-pds">`</span></span>  <span class="pl-k">text</span> CHARACTER <span class="pl-k">SET</span> utf8 COLLATE utf8_bin <span class="pl-k">NOT NULL</span> AFTER <span class="pl-s"><span class="pl-pds">`</span>sql_mode<span class="pl-pds">`</span></span>;</pre></div>
+
+    </div>
+</div></div>
+    </article>
