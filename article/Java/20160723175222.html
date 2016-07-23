@@ -1,0 +1,58 @@
+<div class="js-commit-preview commit-preview"><div class="readme prose-diff html-blob blob instapaper_body" id="readme">
+    <div class="markdown-body">
+        <h4><a aria-hidden="true" href="#使用velocity的tool出现javalangnullpointerexception问题" class="anchor" id="user-content-使用velocity的tool出现javalangnullpointerexception问题"><svg width="16" viewBox="0 0 16 16" version="1.1" height="16" class="octicon octicon-link" aria-hidden="true"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>使用Velocity的tool出现java.lang.NullPointerException问题</h4>
+
+<pre><code>开发使用的是SpringMVC+Velocity的架构，要使用Velocity的tools，在整合时代码如下：
+</code></pre>
+
+        <div class="highlight highlight-source-java"><pre>      <span class="pl-k">&lt;</span>bean id<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>viewResolver<span class="pl-pds">"</span></span> class<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>org.springframework.web.servlet.view.velocity.VelocityViewResolver<span class="pl-pds">"</span></span><span class="pl-k">&gt;</span>
+    <span class="pl-k">&lt;</span>property name<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>cache<span class="pl-pds">"</span></span> value<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-k">/</span><span class="pl-k">&gt;</span>
+    <span class="pl-k">&lt;</span>property name<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>suffix<span class="pl-pds">"</span></span> value<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>.vm<span class="pl-pds">"</span></span> <span class="pl-k">/</span><span class="pl-k">&gt;</span>
+    <span class="pl-k">&lt;</span>property name<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>contentType<span class="pl-pds">"</span></span><span class="pl-k">&gt;</span>
+        <span class="pl-k">&lt;</span>value<span class="pl-k">&gt;</span>text<span class="pl-k">/</span>html;charset<span class="pl-k">=</span><span class="pl-c1">UTF</span><span class="pl-k">-</span><span class="pl-c1">8</span><span class="pl-k">&lt;</span><span class="pl-k">/</span>value<span class="pl-k">&gt;</span>
+    <span class="pl-k">&lt;</span><span class="pl-k">/</span>property<span class="pl-k">&gt;</span>
+    <span class="pl-k">&lt;</span>property name<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>requestContextAttribute<span class="pl-pds">"</span></span> value<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>rc<span class="pl-pds">"</span></span> <span class="pl-k">/</span><span class="pl-k">&gt;</span>
+    <span class="pl-k">&lt;</span>property name<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>toolboxConfigLocation<span class="pl-pds">"</span></span> value<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>velocity-toolbox.xml<span class="pl-pds">"</span></span> <span class="pl-k">/</span><span class="pl-k">&gt;</span>
+    <span class="pl-k">&lt;</span><span class="pl-k">!</span><span class="pl-k">--</span> 定义velocity <span class="pl-c1">DATE</span> 格式化 <span class="pl-k">--</span><span class="pl-k">&gt;</span>
+    <span class="pl-k">&lt;</span>property name<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>dateToolAttribute<span class="pl-pds">"</span></span><span class="pl-k">&gt;</span>
+        <span class="pl-k">&lt;</span>value<span class="pl-k">&gt;</span>dateTool<span class="pl-k">&lt;</span><span class="pl-k">/</span>value<span class="pl-k">&gt;</span>
+    <span class="pl-k">&lt;</span><span class="pl-k">/</span>property<span class="pl-k">&gt;</span>
+<span class="pl-k">&lt;</span><span class="pl-k">/</span>bean<span class="pl-k">&gt;</span></pre></div>
+
+        <p>这个volocity-toolbox.xml配置文件是放在src下，也就是说在打成war包之后是放在WEB-INF/classes这个目录下，可是一直报错误如下：</p>
+
+        <div class="highlight highlight-source-java"><pre><span class="pl-smi">Caused</span> by<span class="pl-k">:</span> <span class="pl-smi">java.lang<span class="pl-k">.</span>NullPointerException</span>
+at <span class="pl-smi">org.springframework.web.servlet.view.velocity<span class="pl-k">.</span>VelocityToolboxView</span><span class="pl-k">.</span>createVelocityContext(<span class="pl-smi">VelocityToolboxView</span><span class="pl-k">.</span>java<span class="pl-k">:</span><span class="pl-c1">111</span>)
+at <span class="pl-smi">org.springframework.web.servlet.view.velocity<span class="pl-k">.</span>VelocityView</span><span class="pl-k">.</span>renderMergedTemplateModel(<span class="pl-smi">VelocityView</span><span class="pl-k">.</span>java<span class="pl-k">:</span><span class="pl-c1">287</span>)
+at <span class="pl-smi">org.springframework.web.servlet.view<span class="pl-k">.</span>AbstractTemplateView</span><span class="pl-k">.</span>renderMergedOutputModel(<span class="pl-smi">AbstractTemplateView</span><span class="pl-k">.</span>java<span class="pl-k">:</span><span class="pl-c1">167</span>)
+at <span class="pl-smi">org.springframework.web.servlet.view<span class="pl-k">.</span>AbstractView</span><span class="pl-k">.</span>render(<span class="pl-smi">AbstractView</span><span class="pl-k">.</span>java<span class="pl-k">:</span><span class="pl-c1">264</span>)
+at <span class="pl-smi">org.springframework.web.servlet<span class="pl-k">.</span>DispatcherServlet</span><span class="pl-k">.</span>render(<span class="pl-smi">DispatcherServlet</span><span class="pl-k">.</span>java<span class="pl-k">:</span><span class="pl-c1">1208</span>)
+at <span class="pl-smi">org.springframework.web.servlet<span class="pl-k">.</span>DispatcherServlet</span><span class="pl-k">.</span>processDispatchResult(<span class="pl-smi">DispatcherServlet</span><span class="pl-k">.</span>java<span class="pl-k">:</span><span class="pl-c1">992</span>)
+at <span class="pl-smi">org.springframework.web.servlet<span class="pl-k">.</span>DispatcherServlet</span><span class="pl-k">.</span>doDispatch(<span class="pl-smi">DispatcherServlet</span><span class="pl-k">.</span>java<span class="pl-k">:</span><span class="pl-c1">939</span>)
+at <span class="pl-smi">org.springframework.web.servlet<span class="pl-k">.</span>DispatcherServlet</span><span class="pl-k">.</span>doService(<span class="pl-smi">DispatcherServlet</span><span class="pl-k">.</span>java<span class="pl-k">:</span><span class="pl-c1">856</span>)
+at <span class="pl-smi">org.springframework.web.servlet<span class="pl-k">.</span>FrameworkServlet</span><span class="pl-k">.</span>processRequest(<span class="pl-smi">FrameworkServlet</span><span class="pl-k">.</span>java<span class="pl-k">:</span><span class="pl-c1">953</span>)
+<span class="pl-c1">...</span> <span class="pl-c1">23</span> more
+
+</pre></div>
+
+        <p>网上也没有查到资料，于是调试了下源码发现在类org.apache.velocity.tools.view.servlet.ServletToolboxManager中读取这个文件使用servletContext.getResourceAsStream这个API来读取的，这样问题就清楚了，开始以为是用类加载器的方式读取的。具体servletContext.getResourceAsStream如何使用大家可以看其他资料，这里不再赘述。</p>
+
+        <p>不过后来我回头看别人的配置文档时，的确发现他们在配置这个文件路径时使用的是项目的相对路径，于是我将这个路径改成：/WEB-INF/classes/velocity-toolbox.xml，让我失望的是问题还是没有解决。接着自己尝试着一个一个目录去测试，将velocity-toolbox.xml文件放置“项目名/src/main/webapp”(WebRoot)，“项目名/src/main/webapp/WEB-INF”,“项目名/src/main/webapp/WEB-INF/classes”目录下，发现“项目名/src/main/webapp”与“项目名/src/main/webapp/WEB-INF“目录下是可以正常运行的。那么问题来了，为什么？文件夹权限问题？猜测中。。。
+            寻找了很久发现原因所在，如下：
+            项目构建使用的是maven，tomcat使用的是第三方插件，插件如下：</p>
+
+        <div class="highlight highlight-source-java"><pre>     <span class="pl-k">&lt;</span>plugin<span class="pl-k">&gt;</span>
+            <span class="pl-k">&lt;</span>groupId<span class="pl-k">&gt;</span>org<span class="pl-k">.</span>apache<span class="pl-k">.</span>tomcat<span class="pl-k">.</span>maven<span class="pl-k">&lt;</span><span class="pl-k">/</span>groupId<span class="pl-k">&gt;</span>
+            <span class="pl-k">&lt;</span>artifactId<span class="pl-k">&gt;</span>tomcat7<span class="pl-k">-</span>maven<span class="pl-k">-</span>plugin<span class="pl-k">&lt;</span><span class="pl-k">/</span>artifactId<span class="pl-k">&gt;</span>
+            <span class="pl-k">&lt;</span>version<span class="pl-k">&gt;</span><span class="pl-c1">2.0</span><span class="pl-k">&lt;</span><span class="pl-k">/</span>version<span class="pl-k">&gt;</span>
+            <span class="pl-k">&lt;</span>configuration<span class="pl-k">&gt;</span>
+                <span class="pl-k">&lt;</span>port<span class="pl-k">&gt;</span>${port}<span class="pl-k">&lt;</span><span class="pl-k">/</span>port<span class="pl-k">&gt;</span>
+                <span class="pl-k">&lt;</span>path<span class="pl-k">&gt;</span><span class="pl-k">/</span><span class="pl-k">&lt;</span><span class="pl-k">/</span>path<span class="pl-k">&gt;</span>
+                <span class="pl-k">&lt;</span>uriEncoding<span class="pl-k">&gt;</span><span class="pl-c1">UTF</span><span class="pl-k">-</span><span class="pl-c1">8</span><span class="pl-k">&lt;</span><span class="pl-k">/</span>uriEncoding<span class="pl-k">&gt;</span>
+            <span class="pl-k">&lt;</span><span class="pl-k">/</span>configuration<span class="pl-k">&gt;</span>
+    <span class="pl-k">&lt;</span><span class="pl-k">/</span>plugin<span class="pl-k">&gt;</span></pre></div>
+
+        <p>这个tomcat插件直接使用项目源码的webapp（项目名\src\main\webapp）目录而非运行时的目录（target\项目名），在\src\main\webapp目录下没有classes目录，那么运行的时候使用的classes目录在哪呢？目录在target\classes下。这样使得servletContext.getResourceAsStream是无法获得classes目录的。换成官方tomcat后可以正常使用。</p>
+
+    </div>
+</div></div>
