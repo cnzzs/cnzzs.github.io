@@ -3,9 +3,9 @@
   "rows": [
     {
       "id": "1",
-      "client": "标题1",
-      "desc": "这里修改描述 这里修改描述 这里修改描述",
-      "image": "images/a1.jpg",
+      "client": "爱编程，爱学习",
+      "desc": "爱编程，爱学习",
+      "image": "images/1.jpg",
       "url": "article/index.html?type=recommend&id=1"
     },
     {
