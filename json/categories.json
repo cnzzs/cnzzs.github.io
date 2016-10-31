@@ -12,6 +12,11 @@
       "num": 3
     },
     {
+      "url":"/article/index.html?type=nginx",
+      "title":"Nginx",
+      "num": 1
+    },
+    {
       "url":"/article/index.html?type=life",
       "title":"个人博客",
       "num": 1

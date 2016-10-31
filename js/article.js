@@ -49,6 +49,7 @@ function list(type){
         befor: function (row, data) {
             row["image"] = base + row["image"];
             row["url"] = base + formatString2Array("%s?type=%s&id=%s&title=%s&createTime=%s", data.url, data.type, row.id, encodeURIComponent(encodeURIComponent(row.title)), row.createTime)
+            row["tag"] =  formatString2Array( row["tag"] , base);
             return row;
         }
     })
