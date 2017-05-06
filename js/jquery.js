@@ -1,4 +1,4 @@
-var base =""
+var base ="/cnzzs.github.io"
 if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
     var msViewportStyle = document.createElement('style')
     msViewportStyle.appendChild(

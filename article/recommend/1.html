@@ -1,26 +1,21 @@
-recommend/1.html
+recommend/12.html
 
-<div>
-   <textarea placeholder="Content here ...." id="editor" style="display: none;">
-        #123654
+<div id="test">
 
-    </textarea>
+</div>
+
+
 <script>
 
-   $(function() {
-    /*   var editor = new Editor({
-           element: document.getElementById('editor'),
-           toolbar: []
-       });*/
-//       editor.render();
-        $('#editor').load('1.md',
-                function(data) {
-                    var editor = new Editor();
-                    editor.render();
-                }
+    $(function() {
+        $('#test').load('1.md',
+            function(data) {
+                var converter = new Markdown.Converter();
+                var htm = converter.makeHtml(data);
+                $('#test').html(htm);
+            }
         );
     });
 
 
 </script>
-</div>
