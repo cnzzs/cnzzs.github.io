@@ -8,7 +8,7 @@ recommend/12.html
 <script>
 
     $(function() {
-        $('#test').load('article/1.md',
+        $('#test').load(base+'/article/1.md',
             function(data) {
                 var converter = new Markdown.Converter();
                 var htm = converter.makeHtml(data);
