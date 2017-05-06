@@ -4,7 +4,6 @@
 
 <pre><code>开发使用的是SpringMVC+Velocity的架构，要使用Velocity的tools，在整合时代码如下：
 </code></pre>
-
         <div class="highlight highlight-source-java"><pre>      <span class="pl-k">&lt;</span>bean id<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>viewResolver<span class="pl-pds">"</span></span> class<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>org.springframework.web.servlet.view.velocity.VelocityViewResolver<span class="pl-pds">"</span></span><span class="pl-k">&gt;</span>
     <span class="pl-k">&lt;</span>property name<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>cache<span class="pl-pds">"</span></span> value<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-k">/</span><span class="pl-k">&gt;</span>
     <span class="pl-k">&lt;</span>property name<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>suffix<span class="pl-pds">"</span></span> value<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>.vm<span class="pl-pds">"</span></span> <span class="pl-k">/</span><span class="pl-k">&gt;</span>

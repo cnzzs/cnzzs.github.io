@@ -3,6 +3,7 @@
   "rows": [
     {
       "id": "1",
+      "file": "html",
       "client": "爱编程，爱学习",
       "desc": "爱编程，爱学习",
       "image": "images/1.jpg",
@@ -10,6 +11,7 @@
     },
     {
       "id": "2",
+      "file": "html",
       "client": "标题2",
       "desc": "add your description here",
       "image": "images/a2.jpg",
@@ -17,6 +19,7 @@
     },
     {
       "id": "3",
+      "file": "html",
       "client": "标题3",
       "desc": "add your description here",
       "image": "images/a3.jpg",

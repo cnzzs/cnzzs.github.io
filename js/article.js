@@ -28,7 +28,19 @@ if(null != request["outCode"]){
     request.title = decodeURIComponent(decodeURIComponent(request.title));
     document.title =  request.title + "|" + document.title;
     $('#title').html( drawing($('#title').html(), request))
-    $('#article-content').load( base + formatString2Map("/article/({type})/({id}).html", request));
+    if (null == request["file"] || "html" == request["file"] ){
+        $('#article-content').load( base + formatString2Map("/article/({type})/({id}).html", request));
+    }else {
+        $('#article-content').load( base + formatString2Map("/article/({type})/({id}).md", request),
+            function(data) {
+                var converter = new Markdown.Converter();
+                var htm = converter.makeHtml(data);
+                $('#article-content').html(htm);
+            }
+        );
+    }
+
+
 }
 
 
@@ -48,7 +60,7 @@ function list(type){
         },
         befor: function (row, data) {
             row["image"] = base + row["image"];
-            row["url"] = base + formatString2Array("%s?type=%s&id=%s&title=%s&createTime=%s", data.url, data.type, row.id, encodeURIComponent(encodeURIComponent(row.title)), row.createTime)
+            row["url"] = base + formatString2Array("%s?type=%s&id=%s&file=%s&title=%s&createTime=%s", data.url, data.type, row.id,row.file, encodeURIComponent(encodeURIComponent(row.title)), row.createTime)
             row["tag"] =  formatString2Array( row["tag"] , base);
             return row;
         }

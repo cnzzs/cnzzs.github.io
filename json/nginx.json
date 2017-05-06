@@ -5,6 +5,7 @@
   "rows": [
     {
       "id": "20161031224507",
+      "file": "html",
       "title": "Nginx WAF 防护功能实战",
       "desc": " Nginx WAF 防护功能实战   作者github地址: https://github.com/loveshell/ngx_lua_waf ",
       "tag":"<a href=\"%s/article/index.html?type=nginx&title=Nginx\">Nginx</a>",
