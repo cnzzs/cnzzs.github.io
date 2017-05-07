@@ -93,14 +93,17 @@ a {
     margin: 10px 0 0 20px;
 }
 
-#slide-controls p#slide-nav {
+#slide-runner p#slide-nav {
+    bottom: 0.5rem;
+    display: inline;
     float: right;
     height: 24px;
-    display: inline;
-    margin: 5px 0px 0 0;
+    margin: 5px 0 0;
+    position: absolute;
+    right: 0;
 }
 
-#slide-controls p#slide-nav a {
+#slide-runner p#slide-nav a {
     float: left;
     width: 24px;
     height: 24px;
@@ -112,12 +115,12 @@ a {
     color: #fff
 }
 
-#slide-controls p#slide-nav a.on {
+#slide-runner p#slide-nav a.on {
     background-position: 0 -24px;
 }
 
 
-#slide-controls p#slide-nav a {
+#slide-runner p#slide-nav a {
     background-image: url("../images/silde-nav.png");
 }
 
