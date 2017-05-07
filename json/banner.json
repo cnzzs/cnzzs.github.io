@@ -1,34 +1,39 @@
 {
   "code": 0,
+  "url": "/article/index.html",
   "rows": [
     {
       "id": "201705072201",
       "file": "md",
-      "client": "相识的夏，欣喜的秋",
+      "title": "相识的夏，欣喜的秋",
       "desc": "春天过了，夏天也悄悄地来了。相识的夏，欣喜的秋。",
       "image": "images/20170507225725.jpg",
-      "url": "article/index.html?type=life&id=201705072201"
+      "type": "life",
+      "createTime":"2017-05-07"
     }, {
       "id": "1",
       "file": "html",
-      "client": "爱编程，爱学习",
+      "title": "爱编程，爱学习",
       "desc": "爱编程，爱学习",
       "image": "images/1.jpg",
-      "url": "article/index.html?type=recommend&id=1"
+      "type": "recommend",
+      "createTime":"2017-05-06"
     }, {
       "id": "2",
       "file": "html",
-      "client": "标题2",
+      "title": "标题2",
       "desc": "add your description here",
       "image": "images/a2.jpg",
-      "url": "article/index.html?type=recommend&id=2"
+      "type": "recommend",
+      "createTime":"2014-02-19"
     },{
       "id": "3",
       "file": "html",
-      "client": "标题3",
+      "title": "标题3",
       "desc": "add your description here",
       "image": "images/a3.jpg",
-      "url": "article/index.html?type=recommend&id=3"
+      "type": "recommend",
+      "createTime":"2014-02-19"
     }
   ]
 }

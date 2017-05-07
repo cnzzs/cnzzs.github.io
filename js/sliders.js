@@ -86,6 +86,7 @@ var slider={
   slider.slide(next);
  },
  slide:function(pos){
+
   if(pos<0 || pos>=slider.num || pos==slider.cur)
    return;
 
@@ -105,9 +106,9 @@ var slider={
   $('#slide-nav a#slide-link-'+pos).addClass('on');
  },
  text:function(di){
-  slider.cr['a']=di.client;
+  slider.cr['a']=di.title;
   slider.cr['b']=di.desc;
-  slider.ticker('#slide-client span',di.client,0,'a');
+  slider.ticker('#slide-client span',di.title,0,'a');
   slider.ticker('#slide-desc',di.desc,0,'b');
  },
  ticker:function(el,text,pos,unique){
