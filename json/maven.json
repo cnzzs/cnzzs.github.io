@@ -1,0 +1,15 @@
+{
+  "code": 0,
+  "type":"maven",
+  "url": "/article/index.html",
+  "rows": [
+    {
+      "id": "201705082245",
+      "file":"md",
+      "title": "发布Maven构件到中央仓库",
+      "desc": " 除了Apache Maven的安装，你还需要安装一个GPG客户端，并且要把它的位置放在命令行的path中，以便于Maven GPG 插件能够找到它。 更多的信息，请参考http://www.gnupg.org/ 以及插件文档 和下文。",
+      "tag":"<a href=\"%s/article/index.html?type=maven\">maven</a>",
+      "createTime":"2017-05-08"
+    }
+  ]
+}
