@@ -3,6 +3,14 @@
   "url": "/article/index.html",
   "rows": [
     {
+      "id": "201705132237",
+      "file": "md",
+      "title": "梦，很真",
+      "desc": " 飞翔，追逐，是梦里一直实现的。",
+      "image": "images/201705132237.jpg",
+      "type": "life",
+      "createTime":"2017-05-13"
+    }, {
       "id": "201705072201",
       "file": "md",
       "title": "相识的夏，欣喜的秋",
@@ -24,14 +32,6 @@
       "title": "标题2",
       "desc": "add your description here",
       "image": "images/a2.jpg",
-      "type": "recommend",
-      "createTime":"2014-02-19"
-    },{
-      "id": "3",
-      "file": "html",
-      "title": "标题3",
-      "desc": "add your description here",
-      "image": "images/a3.jpg",
       "type": "recommend",
       "createTime":"2014-02-19"
     }
