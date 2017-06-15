@@ -17,6 +17,10 @@
       "url":"/article/index.html?type=nginx",
       "title":"Nginx",
       "num": 1
+    },{
+      "url":"/article/index.html?type=pay",
+      "title":"支付",
+      "num": 1
     }, {
       "url":"/article/index.html?type=life",
       "title":"个人博客",
