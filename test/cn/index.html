@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Test1</title>
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/Style.css">
+	<link rel="stylesheet" href="../css/box-test.css">
+</head>
+
+<body>
+	<!-- 二级页面 -->
+	<div class="bs-contents-background">
+		<div class="row bs-contents-container">
+			<span onclick="hiddenbox()" class="glyphicon glyphicon-remove bs-contents-right-close"></span>
+			<div class="col-sm-3 bs-contents-left">
+				<div class="bs-contents-left-class"><!-- 标签列 -->
+					<ul class="bs-contents-left-class-ul">
+						<!-- 列表 -->
+						<li>11</li>
+						<li class="active">校园公告</li>
+						<li>33</li>
+						<li>44</li>
+						<li>55</li>
+					</ul>
+				</div>
+				<div class="bs-contents-left-title"><!-- 类别 --></div>
+				<hr class="margin-fix" />
+				<div class="bs-contents-left-list">
+					<ul class="bs-contents-ul">
+						<!-- 列表 -->
+					</ul>
+				</div>
+				<div class="bs-contents-left-scoll">
+					<div class="bs-contents-left-scoll-fu"></div>
+				</div>
+			</div>
+			<div class="col-sm-9 bs-contents-right">
+				<div class="bs-contents-right-title"><!-- 标题 --></div>
+				<div class="bs-contents-right-info"><!-- 作者信息 --></div>
+				<hr class="margin-fix" />
+				<div class="bs-contents-right-content">
+					<!-- 内容 -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- / 二级页面 -->
+	<!-- / 左侧浮动 -->
+	<div class="bs-left-float">
+		<span class="glyphicon glyphicon-chevron-left js-banner-tui" style="float: right;font-size: 1rem;padding: 10px 0px;color: #F000;display: none;"></span>
+		<span title="搜索" class="glyphicon glyphicon-search js-banner-search"></span>
+		<input type="text" id="text-share" style="width:60%;display:none;margin:1.3rem;">
+		<a href="#" class="hrefs" onclick="this.style.behavior='#default#homepage';this.setHomePage('http://www.mjrj.net');">
+			<span title="设为首页" class="glyphicon glyphicon-tags left-img-fix js-banner-tags"></span>
+		</a>
+		<span title="分享到" class="glyphicon glyphicon-heart js-banner-share"></span>
+		<div class="bshare-custom icon-medium" style="display:none;margin-top:2rem;"><div class="bsPromo bsPromo2"></div><a title="分享到QQ好友" class="bshare-qqim" href="javascript:void(0);"></a><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到网易微博" class="bshare-neteasemb"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a></div>
+
+	</div>
+	<!-- / 左侧浮动 -->
+	<div class="container">
+		<div class="bs-header">
+			<img class="bs-logo" src="../images/logo.png" />
+			<ul class="nav nav-pills pull-right bs-index">
+				<li class="active">
+					<a href="#">首页</a>
+				</li>
+				<li>
+					<a href="#">团委学生会</a>
+				</li>
+				<li>
+					<a href="#">社团联合会</a>
+				</li>
+				<li>
+					<a href="#">党员服务站</a>
+				</li>
+				<li>
+					<a href="#">勤工中心</a>
+				</li>
+				<li>
+					<a href="#">本科团学</a>
+				</li>
+				<li>
+					<a href="#">联系我们</a>
+				</li>
+			</ul>
+
+		</div>
+
+		<div class="row bs-poster-show">
+			<div class="col-sm-9">
+				<!-- Jumbotron -->
+				<div class="Jumbotron bs-poster-ju">
+					<div id="carousel-example-captions" class="carousel slide" data-ride="carousel">
+						<ol class="carousel-indicators js-post-ol">
+							<!-- 列表 -->
+						</ol>
+						<div class="carousel-inner js-post-img">
+							<!-- 图片 -->
+						</div>
+						<a class="bs-scroll-left left carousel-control" href="#carousel-example-captions" data-slide="prev">
+							<span class="glyphicon glyphicon-chevron-left"></span>
+						</a>
+						<a class="bs-scroll-right right carousel-control" href="#carousel-example-captions" data-slide="next">
+							<span class="glyphicon glyphicon-chevron-right"></span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3 placard placard-fix">
+				<div class="list-group fix-center placard-list">
+
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="list-group">
+
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="list-group">
+
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="list-group">
+
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="list-group">
+
+				</div>
+			</div>
+		</div>
+		<div class="bs-show-time">
+		</div>
+		<!-- Site footer -->
+		<div class="footer">
+				<p>&copy; 闽江学院软件学院-魔舟网络|版权所有<br>
+					<a href="http://vote.weibo.com/vid=2641922">博看文思网页比赛->《兰芷队》点击投票</a>
+			
+			</p>
+		</div>
+
+	</div>
+	<!-- /container -->
+	<script src="../js/jquery-2.1.0.min.js"></script>
+	<script src="../js/bootstrap.js"></script>
+	<script src="../js/script.js"></script>
+	<script src="../js/box-show.js"></script>
+	<script src="../js/data.js"></script>
+	<!-- 分享 -->
+		<SCRIPT type=text/javascript charset=utf-8 src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></SCRIPT>
+
+<SCRIPT type=text/javascript charset=utf-8 src="http://static.bshare.cn/b/bshareC0.js"></SCRIPT>
+</body>
+</html>
