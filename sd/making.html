@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>制作</title>
+</head>
+<body>
+需要祝福的名字<input id="name" > <input type="button" onclick="gen()" value="生成">
+
+<p>复制以下的连接或直接访问</p>
+<p id="gen"></p>
+<script>
+    function gen() {
+        var link = "http://www.egzosn.com/sd/#"+encodeURIComponent(encodeURIComponent(document.getElementById("name").value));
+        document.getElementById("gen").innerHTML='<a href="'+link+'">'+link+'</a>';
+    }
+
+</script>
+</body>
+</html>

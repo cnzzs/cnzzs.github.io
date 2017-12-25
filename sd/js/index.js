@@ -24,7 +24,14 @@ var S = {
         if (i !== -1) {
             S.UI.simulate(decodeURI(action).substring(i + 3));
         } else {
-             S.UI.simulate('#circle|亲爱的|建华|现在是|北京时间|#time|我将用|我的方式|表达对您|圣诞祝福|#countdown 5|#show', 3000);
+            var name = location.hash.replace("#","");
+            if ("" == name){
+                name = "建华";
+            }else {
+                name = decodeURIComponent(decodeURIComponent(name));
+            }
+            document.getElementsByTagName("title")[0].innerHTML= name + "-圣诞节快乐！"
+             S.UI.simulate('#circle|亲爱的|'+ name +  '|现在是|北京时间|#time|我将用|我的方式|表达对您|圣诞祝福|#countdown 5|#show', 3000);
 
            // S.UI.simulate('#show', 3000);
         }
@@ -36,7 +43,7 @@ var S = {
 };
 
 function show() {
-    window.location.href = "2.html";
+    window.location.href = "2.html" + location.hash;
 }
 
 
