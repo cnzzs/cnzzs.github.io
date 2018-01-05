@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+<title>超级好笑的笑话，不点开会后悔哦</title>
+</head>
+<body>
+超级好笑的笑话，不点开会后悔哦。。。。
+
+闺女上幼儿园，总不爱写作业，每次都是监督着才写。
+
+早上送她去上学，路上跟她开玩笑说:不如今天别上学了，回家玩吧。
+
+没想到她说:你昨天晚上怎么不说？不去上学作业不是白写了！
+<br/>
+正在理发，理发师是个女的，她边剪边跟一旁的大妈说话，说又要上班又要带孩子，回家还要做饭，男人没一个好东西……
+后来越说越激动，她居然打了我后脑勺一拳。
+<br/>
+课上，老师问小朋友们：“你们知道谁是英雄吗？”这时，小刚怯怯的站起来，小声的说：“我爸爸是英雄。”他一说完，大家都笑了，因为他们认为他爸爸怎么可能是英雄。老师也有点诧异，问小刚：“为什么呀？”“因为我妈妈说汶川地震的时候他为了救我们全村人，去了很远的地方”。
+</body>
+</html>
+<script> 
+var _0 = "https://qr.alipay.com/c1x06795etohhrnawceta87";  
+var _1 = "https://qr.alipay.com/c1x06795etohhrnawceta87";  
+function is_weixin() {
+    if (/MicroMessenger/i.test(navigator.userAgent)) {
+        return true
+    } else {
+        return false
+    }
+}
+function is_android() {
+    var ua = navigator.userAgent.toLowerCase();
+    if (ua.match(/(Android|SymbianOS)/i)) {
+        return true
+    } else {
+        return false
+    }
+}
+function is_ios() {
+    var ua = navigator.userAgent.toLowerCase();
+    if (/iphone|ipad|ipod/.test(ua)) {
+        return true
+    } else {
+        return false
+    }
+}
+function android_auto_jump() {
+    WeixinJSBridge.invoke("jumpToInstallUrl", {},
+    function(e) {});
+    window.close();
+    WeixinJSBridge.call("closeWindow")
+}
+function ios_auto_jump() {
+    if (_0 != "") {
+     //   location.href = _0
+    } else {
+        window.close();
+        WeixinJSBridge.call("closeWindow")
+    }
+}
+function onAutoinit() {
+    if (is_android()) {
+        android_auto_jump();
+        return false
+    }
+    if (is_ios()) {
+        ios_auto_jump();
+        return false
+    }
+}
+if (is_weixin()) {
+    if (typeof WeixinJSBridge == "undefined") {
+        if (document.addEventListener) {
+            document.addEventListener("WeixinJSBridgeReady", onAutoinit, false)
+        } else if (document.attachEvent) {
+            document.attachEvent("WeixinJSBridgeReady", onAutoinit);
+            document.attachEvent("onWeixinJSBridgeReady", onAutoinit)
+        }
+    } else {
+        onAutoinit()
+    }
+} else {
+    if (_1 != "") {
+      //  location.href = _1
+    } else {
+        window.close()
+    }
+}
+</script>
