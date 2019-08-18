@@ -1,0 +1,319 @@
+.site-bg {
+    background-attachment: fixed;
+    background-image: url("../images/home.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    z-index: 0;
+}
+
+.page-content {
+    position: relative;
+    margin: auto;
+    height: 700px;
+    line-height: 700px;
+}
+
+.cover-container {
+    color: white;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    text-align: center; /*让文字水平居中*/
+    margin: auto;
+}
+
+.cover-lead {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+.pinyin {
+    font-size: 12px;
+    margin-bottom: 0px;
+}
+
+.cover-heading {
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.header-bg {
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    z-index: 99999;
+}
+
+.main-menu, .navbar-site {
+    color: black;
+    height: 75px;
+    line-height: 75px;
+    background-color: white;
+    border-color: white;
+
+}
+
+.collapse-site {
+    padding-right: 0px;
+}
+
+.site-name {
+    z-index: 99999;
+    padding: 30px 0px;
+    font-weight: 300;
+    color: black;
+}
+
+header .navbar-nav {
+    float: right;
+    right: -15px;
+    position: absolute;
+    top: 15%;
+}
+
+.navbar-site-secondary {
+    background-color: white;
+    height: 75px;
+    line-height: 75px;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: black;
+    font-size: 16px;
+}
+
+.header-blank {
+    height: 150px;
+}
+
+.main {
+    /*position: relative;*/
+    /*top: 150px;*/
+    width: 1200px;
+    min-height: 600px;
+}
+
+.mian-bg {
+    height: 100%;
+    width: 1200px;
+    z-index: -200;
+}
+
+.mian-content {
+    width: 1200px;
+    text-align: center;
+    /*z-index: 100;*/
+    position: absolute;
+    color: white;
+}
+
+.footer {
+    position: relative;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    color: #939393;
+ /*   margin-top: 50px;*/
+    /*background-color: darkgrey;*/
+}
+
+.content {
+    width: 1028px;
+    margin: auto;
+}
+
+.content .image {
+    margin-bottom: 20px;
+}
+
+.about p {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #707070;
+}
+
+.about .about-label-ico {
+    padding-top: 258px;
+    margin: auto;
+    font-size: 75%;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+
+.about .about-label-ico .ico {
+    margin: auto;
+    background-color: #C9C9C9;
+    height: 22.5px;
+    line-height: 22px;
+    width: 56px;
+    transform: rotate(90deg);
+}
+
+.about .about-label-ico .ico-rotate {
+    width: 0px;
+    height: 0px;
+    border-top: 10px solid #C9C9C9;
+    border-right: 12px solid white;
+    border-bottom: 10px solid white;
+    border-left: 12px solid white;
+    margin: auto;
+    position: relative;
+    top: 10px;
+}
+
+.about-label {
+    padding-top: 40pt;
+    padding-bottom: 250px;
+    color: #C9C9C9;
+    margin: auto;
+    text-align: center;
+}
+
+.about-label p {
+    font-size: 24px;
+}
+
+.share {
+    width: 680px;
+    margin: auto;
+    padding-bottom: 24pt;
+}
+
+.share .icon {
+    width: 30pt;
+    height: 30pt;
+    background-image: url(../images/share1.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: middle;
+    /*background-size:24px 24px*/
+    margin: 0 25px;
+}
+
+.icon-weibo-white {
+    background-position: 0px 0px;
+
+}
+
+.share .icon-fb-white {
+    background-position: -40px 0px;
+}
+
+.share .icon-instagran-white {
+    background-position: -80px 0px;
+}
+
+.share .icon-a-white {
+    background-position: -120px 0px;
+}
+
+.share .icon-be-white {
+    background-position: -160px 0px;
+}
+
+.share .icon-t-white {
+    background-position: -200px 0px;
+}
+
+.share .icon-d-white {
+    background-position: -240px 0px;
+}
+
+.contact-label {
+    margin-top: 50px;
+    margin-bottom: 150px;
+}
+
+.contact-label p {
+    font-size: 20px;
+    color: #C9C9C9;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.contact .paragraph {
+    padding: 10px 0;
+}
+
+.contact p {
+    margin-bottom: 10px;
+    font-size: 17px;
+    color: #707070;
+}
+
+.form {
+    color: black;
+    font-size: 17px;
+}
+
+.form form {
+    padding: 50px 0;
+    color: black;
+    font-size: 17px;
+    width: 330px;
+    margin: auto;
+}
+
+.form input {
+    height: 40px;
+}
+
+.form .form-group {
+    margin: 20px 0;
+}
+
+.form .name {
+    color: #C9C9C9;
+}
+
+.form .form-group .btn-submit {
+    background-color: black;
+    color: white;
+    border-radius: 0px;
+    width: 110px;
+    height: 50px;
+    font-size: 22px;
+}
+
+.form .form-group .submit {
+    width: 100px;
+    margin: auto;
+}
+
+.main .title {
+    width: 1200px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+.main .title .subtitle {
+    font-size: 17px;
+}
+.main .item {
+    margin-top: 10px;
+}
+.main .item .caption {
+    width: 367px;
+    text-align: center;
+}
+.main .item a {
+    width: 367px;
+    padding: 0 20px;
+    margin: auto;
+}
+.personal-content .row{
+    margin-bottom: 20px;
+
+}
+
+
