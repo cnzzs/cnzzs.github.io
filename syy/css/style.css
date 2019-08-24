@@ -1,3 +1,7 @@
+.container {
+    padding-right: 0px;
+    padding-left: 0px;
+}
 .site-bg {
     background-attachment: fixed;
     background-image: url("../images/home.jpg");
@@ -67,11 +71,13 @@
     padding: 30px 0px;
     font-weight: 300;
     color: black;
+    font-size: 17px;
+    font-weight: bold;
 }
 
 header .navbar-nav {
     float: right;
-    right: -15px;
+    right: 0px;
     position: absolute;
     top: 15%;
 }
@@ -94,18 +100,20 @@ header .navbar-nav {
 .main {
     /*position: relative;*/
     /*top: 150px;*/
-    width: 1200px;
     min-height: 600px;
+}
+.main .row{
+   /* margin-left: 0px;*/
 }
 
 .mian-bg {
     height: 100%;
-    width: 1200px;
+    width: 1160px;
     z-index: -200;
 }
 
 .mian-content {
-    width: 1200px;
+    width: 1160px;
     text-align: center;
     /*z-index: 100;*/
     position: absolute;
@@ -133,7 +141,8 @@ header .navbar-nav {
 
 .about p {
     margin-bottom: 20px;
-    font-size: 18px;
+    margin-top: 20px;
+    font-size: 17px;
     color: #707070;
 }
 
@@ -247,7 +256,8 @@ header .navbar-nav {
 }
 
 .contact p {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
     font-size: 17px;
     color: #707070;
 }
@@ -303,17 +313,15 @@ header .navbar-nav {
     margin-top: 10px;
 }
 .main .item .caption {
-    width: 367px;
     text-align: center;
+    font-size: 17px;
+    position: relative;
+    top: -5px;
 }
 .main .item a {
     width: 367px;
-    padding: 0 20px;
+    /*padding: 0 20px;*/
     margin: auto;
-}
-.personal-content .row{
-    margin-bottom: 20px;
-
 }
 
 
