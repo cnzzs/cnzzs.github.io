@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "JosefinSans-Bold";
+  src: url("JosefinSans-Bold.woff2") format("woff2"),
+       url("JosefinSans-Bold.woff") format("woff"),
+       url("JosefinSans-Bold.ttf") format("truetype"),
+       url("JosefinSans-Bold.eot") format("embedded-opentype"),
+       url("JosefinSans-Bold.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+    font-family: "JosefinSans-Light";
+    src: url("JosefinSans-Light.woff2") format("woff2"),
+    url("JosefinSans-Light.woff") format("woff"),
+    url("JosefinSans-Light.ttf") format("truetype"),
+    url("JosefinSans-Light.eot") format("embedded-opentype"),
+    url("JosefinSans-Light.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "JosefinSans-Regular";
+    src: url("JosefinSans-Regular.woff2") format("woff2"),
+    url("JosefinSans-Regular.woff") format("woff"),
+    url("JosefinSans-Regular.ttf") format("truetype"),
+    url("JosefinSans-Regular.eot") format("embedded-opentype"),
+    url("JosefinSans-Regular.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "JosefinSans-Thin";
+    src: url("JosefinSans-Thin.woff2") format("woff2"),
+    url("JosefinSans-Thin.woff") format("woff"),
+    url("JosefinSans-Thin.ttf") format("truetype"),
+    url("JosefinSans-Thin.eot") format("embedded-opentype"),
+    url("JosefinSans-Thin.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}

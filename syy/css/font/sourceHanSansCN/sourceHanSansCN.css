@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "sourceHanSansCN-Bold";
+  src: url("sourceHanSansCN-Bold.woff2") format("woff2"),
+       url("sourceHanSansCN-Bold.woff") format("woff"),
+       url("sourceHanSansCN-Bold.ttf") format("truetype"),
+       url("sourceHanSansCN-Bold.eot") format("embedded-opentype"),
+       url("sourceHanSansCN-Bold.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+    font-family: "sourceHanSansCN-Light";
+    src: url("sourceHanSansCN-Light.woff2") format("woff2"),
+    url("sourceHanSansCN-Light.woff") format("woff"),
+    url("sourceHanSansCN-Light.ttf") format("truetype"),
+    url("sourceHanSansCN-Light.eot") format("embedded-opentype"),
+    url("sourceHanSansCN-Light.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "sourceHanSansCN-Regular";
+    src: url("sourceHanSansCN-Regular.woff2") format("woff2"),
+    url("sourceHanSansCN-Regular.woff") format("woff"),
+    url("sourceHanSansCN-Regular.ttf") format("truetype"),
+    url("sourceHanSansCN-Regular.eot") format("embedded-opentype"),
+    url("sourceHanSansCN-Regular.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "sourceHanSansSCN-Bold";
+    src: url("sourceHanSansSCN-Bold.woff2") format("woff2"),
+    url("sourceHanSansSCN-Bold.woff") format("woff"),
+    url("sourceHanSansSCN-Bold.ttf") format("truetype"),
+    url("sourceHanSansSCN-Bold.eot") format("embedded-opentype"),
+    url("sourceHanSansSCN-Bold.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "sourceHanSansCN-Heavy";
+    src: url("sourceHanSansCN-Heavy.woff2") format("woff2"),
+    url("sourceHanSansCN-Heavy.woff") format("woff"),
+    url("sourceHanSansCN-Heavy.ttf") format("truetype"),
+    url("sourceHanSansCN-Heavy.eot") format("embedded-opentype"),
+    url("sourceHanSansCN-Heavy.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "sourceHanSansSCN-Light";
+    src: url("sourceHanSansSCN-Light.woff2") format("woff2"),
+    url("sourceHanSansSCN-Light.woff") format("woff"),
+    url("sourceHanSansSCN-Light.ttf") format("truetype"),
+    url("sourceHanSansSCN-Light.eot") format("embedded-opentype"),
+    url("sourceHanSansSCN-Light.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "sourceHanSansSCN-Regular";
+    src: url("sourceHanSansSCN-Regular.woff2") format("woff2"),
+    url("sourceHanSansSCN-Regular.woff") format("woff"),
+    url("sourceHanSansSCN-Regular.ttf") format("truetype"),
+    url("sourceHanSansSCN-Regular.eot") format("embedded-opentype"),
+    url("sourceHanSansSCN-Regular.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
