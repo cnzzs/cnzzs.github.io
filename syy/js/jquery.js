@@ -1,4 +1,4 @@
-var base ="/blog_suiyeyuan/blog-web/static/"
+var base ="/syy/"
 if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
     var msViewportStyle = document.createElement('style')
     msViewportStyle.appendChild(
