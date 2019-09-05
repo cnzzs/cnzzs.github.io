@@ -1,7 +1,7 @@
 /**
  * Created by egzosn on 2019/8/17.
  */
-function init() {
+function initLoad() {
     var request = new GetRequest();
     if (null != request.title) {
         request.title = decodeURIComponent(decodeURIComponent(request.title));
@@ -9,27 +9,34 @@ function init() {
     }
     if (null != request["type"]) {
         $('#main').load(request["type"] + ".html");
-        $('.navbar-nav li').removeClass("activity");
-        var navLi = $('[href="index.html#type='+ request["type"]+'"]').parent();
-        var navUL = $(navLi.parent());
-        if (navUL.hasClass("navbar-nav")){
-            navLi.addClass("activity");
-        }else {
-            navUL.parent().addClass("activity");
+        $('.activity').remove();
+        var typeDom = $('[href="index.html#type=' + request["type"] + '"]');
+        var text = typeDom.text();
+        var dropdownMenu = typeDom.parent().parent();
+        var dom = typeDom;
+        if (dropdownMenu.hasClass("dropdown-menu")) {
+            var prevDom = dropdownMenu.prev();
+            text = prevDom.text();
+            dom = prevDom;
         }
+        var w = dom.parent().outerWidth();
+        dom.before('<div class="activity" style="line-height: 15px;">&nbsp;&nbsp;&nbsp;' + text.replace(new RegExp(".", "g"), "&nbsp;") + '&nbsp;&nbsp;&nbsp;&nbsp;</div>')
     }
+
 }
-init();
+
+
+
+
+initLoad();
 $(function () {
 
     $(".nav-menu").click(function () {
-        setTimeout(function () {
-
-            init();
-        }, 10)
-
+        var that = $(this);
+        location.href = that.attr("href");
+        initLoad();
+        return false;
     });
-
     $('[data-toggle="dropdown-t"]').parent().mouseover(function (e) {
         var that = $(this);
         that/*.parent()*/.addClass('open');
